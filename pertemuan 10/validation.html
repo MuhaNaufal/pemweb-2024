@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Form Validation</h2>
+
+<form id="myForm" onsubmit="return validateForm()">
+  <label for="name">Nama Pelanggan:</label><br>
+  <input type="text" id="name" name="name"><span class="error" id="nameError"></span><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email"><span class="error" id="emailError"></span><br><br>
+
+  <label for="departureTime">Jam Keberangkatan:</label><br>
+  <input type="time" id="Jam" name="Jam"><span class="error" id="JamError"></span><br><br>
+
+  <label for="destination">Tujuan Keberangkatan:</label><br>
+  <input type="text" id="Tujuan" name="Tujuan"><span class="error" id="TujuanError"></span><br><br>
+
+  <label for="tickets">Jumlah Tiket:</label><br>
+  <input type="number" id="tiket" name="tiket" min="1" max="10"><span class="error" id="tiketError"></span><br><br>
+  
+  <input type="submit" value="Submit">
+</form>
+
+<div id="result"></div>
+
+<script>
+function validateForm() {
+  let name = document.forms["myForm"]["name"].value;
+  let email = document.forms["myForm"]["email"].value;
+  let departureTime = document.forms["myForm"]["Jam"].value;
+  let destination = document.forms["myForm"]["Tujuan"].value;
+  let tickets = document.forms["myForm"]["tiket"].value;
+
+  let nameError = document.getElementById("nameError");
+  let emailError = document.getElementById("emailError");
+  let timeError = document.getElementById("JamError");
+  let destinationError = document.getElementById("TujuanError");
+  let ticketsError = document.getElementById("tiketError");
+
+  // Clear previous error messages
+  nameError.textContent = "";
+  emailError.textContent = "";
+  Jam.textContent = "";
+  Tujuan.textContent = "";
+  tiketError.textContent = "";
+
+  let valid = true;
+
+  if (name === "") {
+    nameError.textContent = "Nama pelanggan harus diisi.";
+    valid = false;
+  }
+  if (email === "") {
+    emailError.textContent = "Email harus diisi.";
+    valid = false;
+  }
+  if (departureTime === "") {
+    JamError.textContent = "Jam keberangkatan harus diisi.";
+    valid = false;
+  }
+  if (destination === "") {
+    TujuanError.textContent = "Tujuan keberangkatan harus diisi.";
+    valid = false;
+  }
+  if (tickets === "" || tickets < 1 || tickets > 10) {
+    tiketError.textContent = "Jumlah tiket harus antara 1 dan 10.";
+    valid = false;
+  }
+
+  if (valid) {
+    // Menampilkan hasil
+    document.getElementById("result").innerHTML = `
+      <h3>Hasil Form:</h3>
+      <p>Nama Pelanggan: ${name}</p>
+      <p>Email: ${email}</p>
+      <p>Jam Keberangkatan: ${Jam}</p>
+      <p>Tujuan Keberangkatan: ${Tujuan}</p>
+      <p>Jumlah Tiket: ${tiket}</p>
+    `;
+  }
+
+  return false; // Mencegah pengiriman formulir
+}
+</script>
+
+</body>
+</html>

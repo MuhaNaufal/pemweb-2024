@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+header, article, aside, nav, footer{
+  padding: 1rem;
+}
+
+body {
+ display: flex;
+ list-style-type: upper-alpha ;
+ flex-direction: column;
+ min-height: 100vh;
+}
+
+header,footer {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width:197vh;
+  height: 8vh;
+  margin-left: 30px;
+  background-color: rgb(255, 0, 0)
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+
+}
+
+
+
+aside {
+background-color: rgb(172, 134, 134);
+display: flex;
+width: 350px;
+margin-left: 30px;
+}
+
+article{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgb(192, 69, 100);
+  margin-left: 30px;
+  width: 853px;
+  height: 60vh;
+  margin-bottom: -30px;
+  
+}
+
+img{
+  width: 250px;
+  height: 200px;
+  margin: 10px;
+  justify-content: center;
+}
+
